@@ -1,0 +1,6 @@
+## ignore pdf file
+*.pdf
+
+## ignore folder
+TCPDF-main/
+
