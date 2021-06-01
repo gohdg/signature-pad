@@ -310,7 +310,7 @@ $html = '
         </div>
       </div>
       <div>
-       <img src="img/esign.jpg">
+       <img src="signatures/esign.jpg">
       </div>
     </div>
   ';

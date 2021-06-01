@@ -1,15 +1,16 @@
 <?php
 if (isset($_POST["signaturesubmit"])) {
   $signature = $_POST["signature"];
-  echo $signature;
-  //   $signatureFileName = uniqid() . ".jpg";
-  $signatureFileName = "esign.jpg";
+  //   echo $signature;
+  $signatureFileName = uniqid() . ".jpg";
+  //   $signatureFileName = "esign.jpg";
   $signature = str_replace("data:image/jpeg;base64,", "", $signature);
   $signature = str_replace(" ", "+", $signature);
   $data = base64_decode($signature);
   $file = "signatures/" . $signatureFileName;
   file_put_contents($file, $data);
   $msg = "<div class='alert alert-success'>Signature Uploaded</div>";
+  require "genpdf.php";
 } ?>
 <html>
 <head>
@@ -51,10 +52,7 @@ if (isset($_POST["signaturesubmit"])) {
         var canvasDiv = document.getElementById('canvasDiv');
         
         var canvas = document.createElement('canvas');
-        
-            
-        
-
+       
         canvas.setAttribute('id', 'canvas');
 
         canvasDiv.appendChild(canvas);
