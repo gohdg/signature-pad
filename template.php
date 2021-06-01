@@ -1,5 +1,36 @@
 <?php
+$check1 = false;
+$check2 = true;
+$check3 = false;
+$check4 = true;
+$agreement1 = "";
+$agreement2 = "";
+$agreement3 = "";
+$agreement4 = "";
 
+$td_agree = '<td class="left-space"></td>
+              <td class="check-box"><img src="img/tick1.jpg" width="30" height="30"></td>
+              <td class="td-space20"></td>
+              <td>Agree</td>
+              <td class="td-space50"></td>
+              <td class="check-box"></td>
+              <td class="td-space20"></td>
+              <td>Do not agree</td>';
+$td_disagree = '<td class="left-space"></td>
+              <td class="check-box"></td>
+              <td class="td-space20"></td>
+              <td>Agree</td>
+              <td class="td-space50"></td>
+              <td class="check-box"><img src="img/tick1.jpg" width="30" height="30"></td>
+              <td class="td-space20"></td>
+              <td>Do not agree</td>';
+
+$agreement1 = $check1 ? $td_agree : $td_disagree;
+$agreement2 = $check2 ? $td_agree : $td_disagree;
+$agreement3 = $check3 ? $td_agree : $td_disagree;
+$agreement4 = $check4 ? $td_agree : $td_disagree;
+
+// $signatureFileName = "60b5ce130a194.jpg";
 $html =
   '
 <style>
@@ -12,14 +43,14 @@ $html =
     }
     h2{
         font-size:14px;
-       
-        
+  
     }
     
     span.h4{
         font-size:12px;
         font-weight:bold;
     }
+
     p{
         font-size:10px;
         text-align: justify;
@@ -32,7 +63,10 @@ $html =
         height:10px;
     }
     
-    table {
+    .copyright{
+      font-size:9px;
+    }
+    .disc-table {
         border-collapse: collapse;
         border: 1px solid grey;
         table-layout: auto;
@@ -41,7 +75,7 @@ $html =
         font-size:10px;
     }
 
-    td {
+    .disc-table td {
         border: 1px solid grey;
     }
 
@@ -62,6 +96,26 @@ $html =
 
     .ta{
         text-align:right;
+    }
+
+    .agree{
+      font-size:12px;
+    }
+    td.check-box{
+        border: 1px solid grey;
+        width:15px;
+       
+        
+        
+    }
+    td.td-space50{
+        width: 30px;
+    }
+    td.td-space20{
+        width: 6px;
+    }
+    td.left-space{
+        width: 60%;
     }
     
 
@@ -115,11 +169,12 @@ $html =
     <span class="declare">
     I fully understand and agree to the above rules and regulations
     regarding the collection and use of personal information
-    </span>
-    <div class="ta">
-    <label for="agree1">Agree</label>
-    <label for="disagree1">Do not agree</label>
-    </div>
+    </span><br /><br />
+    <table class="agree">
+          <tr>' .
+  $agreement1 .
+  '</tr>
+    </table> 
     <span class="h4">2. Personal Identification Number</span>
    
     <ul>
@@ -141,14 +196,13 @@ $html =
     </ul>
     <span class="declare">
     I fully understand and agree to the above rules and regulations
-    regarding the collection and use of personal information
-    </span>
-    <div class="d-flex">
-    
-       <label for="agree2">Agree</label>
-       <label for="disagree2">Do not agree</label>
-    
-    </div>
+    regarding the collection and use of personal identification information
+    </span><br />
+    <table class="agree">
+          <tr>' .
+  $agreement2 .
+  '</tr>
+    </table> 
     <span class="h4">3. Disclosure of personal information to overseas third parties</span>
     <br />       
     To deliver appropriate and seamless services to guests, Park Hyatt Seoul
@@ -158,16 +212,16 @@ $html =
     <br />
     <span class="declare">
     I fully understand and agree to the above rules and regulations
-    regarding the collection and use of personal information
-    </span>
-    <div class="d-flex">
+    regarding the collection and use of personal information to overseas thrid parties
+    </span><br/>
+    <table class="agree">
+          <tr>' .
+  $agreement3 .
+  '</tr>
+    </table> 
+    <br/><br/>
     
-        <label for="agree3">Agree</label>
-        <label for="disagree3">Do not agree</label>
-    
-    </div>
-    
-       <table>
+       <table class="disc-table">
         <tr>
           <td width="10%">Third party</td>
           <td width="15%">Purpose of use</td>
@@ -190,24 +244,27 @@ $html =
     
     <span class="h4">Notice of Copyright Law Application on the Premises</span>
     <br />
-    <span>Please be informed that guestrooms should be used only for accommodation purposes. If the room is used for commercial purposes by an individual or a group without the hotel’s prior consent, such conduct may be considered as an infringement of the architectural copyright. All photo shootings and video recordings for commercial purposes require prior consent, and are subject to a fee as determined by the hotel. Please note that all spaces including guest rooms in the Park Hyatt Seoul building are architectural property and are protected by Article 4 Clause 1 (5) under the copyright law. According to the copyright law Article 123 Clause 1, the hotel has the right to request a suspension of such conduct, claim damages for copyright infringement under Article 125 of the same law, and/or file a criminal complaint.</span>
+    <span class="copyright">Please be informed that guestrooms should be used only for accommodation purposes. If the room is used for commercial purposes by an individual or a group without the hotel’s prior consent, such conduct may be considered as an infringement of the architectural copyright. All photo shootings and video recordings for commercial purposes require prior consent, and are subject to a fee as determined by the hotel. Please note that all spaces including guest rooms in the Park Hyatt Seoul building are architectural property and are protected by Article 4 Clause 1 (5) under the copyright law. According to the copyright law Article 123 Clause 1, the hotel has the right to request a suspension of such conduct, claim damages for copyright infringement under Article 125 of the same law, and/or file a criminal complaint.</span>
     <br />
     <br />
 
     <span class="declare">
     I fully understand and agree to the above rules and regulations
-    regarding the collection and use of personal information
-    </span>
-    <div class="d-flex">
-    
-        <label for="agree3">Agree</label>
-        <label for="disagree3">Do not agree</label>
-    
-    </div>    
-
-    <img src="signatures/' .
+    regarding copyright law application on the premises
+    </span><br/><br/>
+    <table class="agree">
+          <tr>' .
+  $agreement4 .
+  '</tr>
+    </table> 
+  <table >
+   <tr>
+      <td style="text-align:right;vertical-align:bottom; width:60%;"><br><br><br><br>Signature</td><td style="text-align:left;"><img src="signatures/' .
   $signatureFileName .
-  '" width="200" height="79">
+  '" width="190" height="68"></td>    
+   </tr>
+  </table>        
+    
 
 ';
 

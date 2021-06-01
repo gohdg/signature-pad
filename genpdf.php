@@ -28,10 +28,10 @@ class MYPDF extends TCPDF
     $today = date("F j, Y/ g:i A", time());
 
     // Page number and generated Date/Time
-    $this->Cell(25, 8, "Generation Date/Time: " . $today, 0, 0, "L");
+    $this->Cell(25, 5, "Generation Date/Time: " . $today, 0, 0, "L");
     $this->Cell(
       0,
-      10,
+      5,
       "Page " . $this->getAliasNumPage() . "/" . $this->getAliasNbPages(),
       0,
       false,
@@ -72,6 +72,8 @@ $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
 $pdf->SetMargins(10, 10, 10); //LEFT, TOP, RIGHT
+
+//set footer margins
 
 // set auto page breaks
 $pdf->SetAutoPageBreak(true, PDF_MARGIN_BOTTOM);
